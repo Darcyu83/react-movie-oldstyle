@@ -2,7 +2,7 @@ import axios from "axios";
 import React from "react";
 import Movie from "../components/Movie";
 import "./Home.css";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useSearchParams } from "react-router-dom";
 
 class Home extends React.Component {
   state = { isLoading: true, movies: [] };
@@ -41,6 +41,7 @@ class Home extends React.Component {
   }
   render() {
     const { isLoading, movies } = this.state;
+
     return (
       <div>
         <header>

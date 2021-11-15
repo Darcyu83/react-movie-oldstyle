@@ -16,7 +16,7 @@ ReactDOM.render(
         <Route path="/" element={<App />}>
           <Route path="movies" element={<Home />}>
             <Route path="about" element={<About />}>
-              <Route path=":movieId" element={<About />}></Route>
+              <Route path=":movieId&:movieId2" element={<About />}></Route>
             </Route>
           </Route>
           <Route path="invoices" element={<Invoices />}>
