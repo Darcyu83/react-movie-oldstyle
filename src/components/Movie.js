@@ -4,36 +4,40 @@ import "./Movie.css";
 import { NavLink, useLocation } from "react-router-dom";
 
 function MovieLink({ to, title, ...props }) {
-  console.log(useLocation());
   return (
     <NavLink to={to} {...props}>
-      타이틀 파라미터 설정 in Router:{title}
+      {title}: URL: /movies/about/"id"
     </NavLink>
   );
 }
 
 function Movie({ id, year, title, summary, poster, genres, dataObject }) {
+  console.log("dataObject", dataObject);
   return (
     <div className="movie">
       <img src={poster} className="movie_cover" alt={title} title={title} />
       <div className="movie_data">
         <h3 className="movie_title">
           <MovieLink
-            to={`/movies/about/${id}&"id2`}
+            to={`/about/${id}&"id2`}
+            state={{ dataObject }}
             style={({ isActive }) => {
               return {
                 display: "block",
                 margin: "1rem 0",
                 textDecoration: "none",
-                color: isActive ? "blue" : "green",
+                color: isActive ? "blue" : "",
               };
             }}
             title={title}
           />
         </h3>
         <h3 className="movie_title">
-          <NavLink to={`/movies/about?idMovie=${id}&idMovie="second"`}>
-            타이틀 파라미터 설정 directly:{title}
+          <NavLink
+            to={`/movies/about?idMovie=${id}&idMovie="second"`}
+            state={{ fromNotifications: true }}
+          >
+            {title}: URL: /movies/about?id="id"
           </NavLink>
         </h3>
         <h5 className="movie_year">{year}</h5>

@@ -1,13 +1,20 @@
 import axios from "axios";
 import React from "react";
 import Movie from "../components/Movie";
-import "./Home.css";
+import "./Movies.css";
 import { Link, Outlet, useSearchParams } from "react-router-dom";
 
 class Home extends React.Component {
   state = { isLoading: true, movies: [] };
 
   componentDidMount() {
+    console.log(this.state.movies.length !== 0);
+    console.log(this.state.movies.length === undefined);
+    if (this.state.movies.length !== 0 || this.state.movies === undefined) {
+      this.setState({ isLoading: false });
+      return;
+    }
+
     this.getMovies();
   }
 
@@ -21,11 +28,9 @@ class Home extends React.Component {
     );
     this.setState({ movies });
     this.setState({ isLoading: false });
-    console.log(movies);
   };
 
   renderMovie(props, index) {
-    console.log("props ==== ", props);
     return (
       <Movie
         key={index}

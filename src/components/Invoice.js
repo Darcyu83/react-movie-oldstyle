@@ -5,7 +5,9 @@ function Invoice() {
   const navigate = useNavigate();
   let invoice = getInvoice(parseInt(number, 10));
   return (
-    <main style={{ padding: "1rem" }}>
+    <main
+      style={{ padding: "1rem", width: "50%", margin: "0px 30px 20px 0px" }}
+    >
       <h2>Total Due : {invoice.amout}</h2>
       <p>
         {invoice.name} : {invoice.number}

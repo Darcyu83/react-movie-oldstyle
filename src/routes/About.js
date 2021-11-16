@@ -1,26 +1,19 @@
 import React from "react";
-import { useParams, useSearchParams } from "react-router-dom";
+import axios from "axios";
+import Details from "../components/Details";
+import { useParams, useSearchParams, useLocation } from "react-router-dom";
+import { staticMoviesData } from "./Movies";
+function About(props) {
+  const location = useLocation();
+  if (location.state) {
+  }
 
-function About() {
   const { movieId, movieId2 } = useParams();
-  console.log("useParams= ", movieId);
-  console.log("useParams2= ", movieId2);
-
   let [params] = useSearchParams();
-  console.log("useSearchParams params = ", params);
   let idMovie = params.get("idMovie");
-  console.log("useSearchParams= ", idMovie);
-
   let [id1, id2] = params.getAll("idMovie");
-  console.log("useSearchParams id1= ", id1);
-  console.log("useSearchParams id2= ", id2);
-  return (
-    <div>
-      <h3>Detail About </h3>
-      <h4>movieId : {movieId}</h4>
-      <h4>idMovie : {idMovie}</h4>
-    </div>
-  );
+
+  return <Details dataObject={location.state.dataObject} />;
 }
 
 export default About;

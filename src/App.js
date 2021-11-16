@@ -1,19 +1,53 @@
 import React from "react";
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, NavLink } from "react-router-dom";
+
+import css from "./App.module.css";
 
 function App() {
   return (
     //
     <div>
-      <h1> BookKeeper</h1>
+      <h1> Menu </h1>
 
-      <nav style={{ borderBottom: "solid 1px", paddingBottom: "1rem" }}>
-        <Link to="/movies">Movie Home</Link> |{" "}
-        <Link to="/invoices">Invoices</Link> |{" "}
-        <Link to="/expenses">Expenses</Link> |{" "}
-        <Link to="/shoes/nike">Nike</Link> | <Link to="/shoes/vans">Vans</Link>{" "}
-        | <Link to="/shoes?brand=nike&brand=vans">2 brand</Link> |{" "}
-        <Link to="/shoes?brand=vans">Vans1</Link> |{" "}
+      <nav className={css.navShadow}>
+        <NavLink
+          style={({ isActive }) => {
+            return {
+              color: isActive ? "blue" : "",
+              textDecoration: "none",
+              fontWeight: isActive ? "bold" : "",
+            };
+          }}
+          to="/movies"
+        >
+          Movie Home
+        </NavLink>{" "}
+        |{" "}
+        <NavLink
+          style={({ isActive }) => {
+            return {
+              color: isActive ? "blue" : "",
+              textDecoration: "none",
+              fontWeight: isActive ? "bold" : "",
+            };
+          }}
+          to="/invoices"
+        >
+          Invoices
+        </NavLink>{" "}
+        |{" "}
+        <NavLink
+          style={({ isActive }) => {
+            return {
+              color: isActive ? "blue" : "",
+              textDecoration: "none",
+              fontWeight: isActive ? "bold" : "",
+            };
+          }}
+          to="/expenses"
+        >
+          Expenses
+        </NavLink>
       </nav>
       <Outlet />
     </div>

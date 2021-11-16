@@ -20,6 +20,7 @@ export default function Invoices() {
         style={{
           borderRight: "solid 1px",
           padding: "1rem",
+          width: "50%",
         }}
       >
         <input
@@ -48,6 +49,7 @@ export default function Invoices() {
                   margin: "1rem 0",
                   textDecoration: "none",
                   color: isActive ? "blue" : "",
+                  fontWeight: isActive ? "bold" : "",
                 };
               }}
               to={`/invoices/${invoice.number}`}

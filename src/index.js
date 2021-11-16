@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Invoices from "./components/Invoices";
 import Expenses from "./components/Expenses";
 import About from "./routes/About";
-import Home from "./routes/Home";
+import Movies from "./routes/Movies";
 import Invoice from "./components/Invoice";
 import Shoes from "./components/Shoes";
 
@@ -14,10 +14,9 @@ ReactDOM.render(
     <Router>
       <Routes>
         <Route path="/" element={<App />}>
-          <Route path="movies" element={<Home />}>
-            <Route path="about" element={<About />}>
-              <Route path=":movieId&:movieId2" element={<About />}></Route>
-            </Route>
+          <Route path="movies" element={<Movies />}></Route>
+          <Route path="about" element={<About />}>
+            <Route path=":movieId&:movieId2" element={<About />}></Route>
           </Route>
           <Route path="invoices" element={<Invoices />}>
             <Route
@@ -31,9 +30,6 @@ ReactDOM.render(
             <Route path=":number" element={<Invoice />}></Route>
           </Route>
           <Route path="expenses" element={<Expenses />}></Route>
-          <Route path="shoes" element={<Shoes />}>
-            <Route path=":brand" element={<Shoes />}></Route>
-          </Route>
         </Route>
         <Route
           path="*"
